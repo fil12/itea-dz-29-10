@@ -1,15 +1,31 @@
 <!--suppress ALL -->
 <template>
     <div>
-
-        <btn v-for="(tab, i) in tabs" :key="i" @customEvent="curTab = tab" @click="console.log(tab);">{{ tab }}</btn>
-        <!--  keep-alive - когда vue отрендерит компонент, -->
-        <!--  keep-alive его закеширует, что бы не тратить ресурс на следующую отрисовку  -->
-        <keep-alive>
-            <!--   тег component с привязкой отребута is дает возможность динамического использования компонентов   -->
-            <component :is="curTab"></component>
-        </keep-alive>
-        <br><br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-login">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-6" >
+                                    <btn v-for="(tab, i) in tabs" :label="tab.label" :key="i" @customEvent="curTab = tab" >{{ tab.name }}</btn>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <keep-alive>
+                                        <component :is="curTab.name"></component>
+                                    </keep-alive>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -28,16 +44,23 @@
         data() {
             return {
                 tabs: [
-                    "TabOne",
-                    "TabTwo"
+                    {
+                        name: `TabOne`,
+                        label: `Login Form`
+                    },
+                    {
+                        name: `TabTwo`,
+                        label: `Registration Form`
+                    }
                 ],
-                curTab: 'tab-one'
+                curTab: {name:`TabOne`, label: `Login Form`}
             }
         }
     }
 
 </script>
 
-<style scoped>
+<style scoped lang="css">
+
 
 </style>
