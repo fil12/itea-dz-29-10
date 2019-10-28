@@ -14,7 +14,7 @@
             },
             type: {
                 type: String,
-                default: `button`
+                default: 'button'
             }
         },
         data() {

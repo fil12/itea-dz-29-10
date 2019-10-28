@@ -32,7 +32,7 @@
 <script>
     import TabOne from './tabs/TabOne'
     import TabTwo from './tabs/TabTwo'
-    import Btn from './Btn'
+    import Btn from './btns/Btn'
 
     export default {
         name: "Wrap",

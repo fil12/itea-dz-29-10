@@ -1,10 +1,8 @@
 <template>
         <div class="form-group">
-
             <input
                     :type="type"
                     :placeholder="placeholder"
-                    :value="value"
                     :class = "NameClass"
                     @input="$emit('input', $event.target.value)"
             >
@@ -17,8 +15,7 @@
         props:{
             type: String,
             placeholder: String,
-            value: String,
-            NameClass: String
+            NameClass: {type: String, default: `form-control`}
         },
 
         data() {
